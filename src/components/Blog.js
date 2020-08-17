@@ -35,7 +35,7 @@ const Blog = ({ blog, updateBlog, deleteBlog, user }) => {
 
   const [buttonLabel, setButtonLabel] = useState('view')
 
-  return <div style={blogStyle}>
+  return <div className='blog' style={blogStyle}>
     <span>{blog.title} {blog.author}</span>
     {buttonLabel === 'view' ?
       <button onClick={() => setButtonLabel('hide')}>{buttonLabel}</button>
@@ -52,7 +52,7 @@ const Blog = ({ blog, updateBlog, deleteBlog, user }) => {
 
 Blog.propTypes = {
   blog: PropTypes.object.isRequired,
-  updateBlog: PropTypes.object.isRequired,
+  updateBlog: PropTypes.func.isRequired,
   deleteBlog: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired
 }
