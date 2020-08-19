@@ -36,7 +36,7 @@ describe('<Blog />', () => {
   })
 
 
-  test('renders content', () => {
+  test('renders title and author', () => {
 
     expect(div).toHaveTextContent(
       'Little neat trick to capture a click outside React component'
@@ -67,7 +67,7 @@ describe('<Blog />', () => {
     )
   })
 
-  test('the update handler is called as many times as the likes button is clicked', () => {
+  test('the update handler is called as many times as the like button is clicked', () => {
 
     const view = component.getByText('view')
     fireEvent.click(view)

@@ -108,11 +108,9 @@ const App = () => {
       </header>
       <main>
         {user === null ?
-          <Togglable buttonLabel='login'>
-            <LoginForm
-              login={handleLogin}
-            />
-          </Togglable>
+          <LoginForm
+            login={handleLogin}
+          />
           :
           <>
             <p>{user.name} logged-in
@@ -124,12 +122,14 @@ const App = () => {
                 user={user}
               />
             </Togglable>
+            <div className='blog-list'>
+              <h2>blogs</h2>
+              { blogs.map(blog =>
+                <Blog key={blog.id} blog={blog} updateBlog={handleUpdate} deleteBlog={handleDelete} user={user} />
+              )}
+            </div>
           </>
         }
-        <h2>blogs</h2>
-        {blogs.map(blog =>
-          <Blog key={blog.id} blog={blog} updateBlog={handleUpdate} deleteBlog={handleDelete} user={user} />
-        )}
       </main>
     </>
   )
